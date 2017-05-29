@@ -1,18 +1,26 @@
 ##################################################################################################################
 ######################### Function for calculating the perfect measurements for food dispensers ##################
 ##################################################################################################################
-
-# function for converting degree to radians
-deg2rad <- function(deg) {(deg * pi) / (180)}
-
-calculate <- function(rho = 0.6, kg = 25, alpha = 45, depth = 40, width = NA, height = NA) {
+#' function for calculating one missing measurement of a food dispenser
+#'
+#' @param rho Bulk density. By default 0.6 kg per liter because it will provide enough place for almost every cereal.
+#' @param kg How much kilos shall the dispenser contain? By default 25 kg
+#' @param angle Angle of the big slanted board inside the dispenser; unit is degree; by default 45
+#' @param depth Dispenser's depth. Because of 'euro-norm' 40cm by default.
+#' @param width Dispenser's widht. Either width or height is required! Measurements in cm.
+#' @param height Dispenser's height.
+#' @return If width is given, height will be calculated. If height is given, width will be calculated. You can play with the angle input as well as the depth input. Output is a vector containing width, height, depth and angle.
+#'
+#'
+#' @export
+calculate <- function(rho = 0.6, kg = 25, angle = 45, depth = 40, width = NA, height = NA) {
   if (is.na(width) && is.na(height)) stop("Either width or height is required")
   depth <- depth / 10 # cm to dm
   # necessary volume
   volume <- kg / rho
 
   # triangle's height
-  h_tri <- tan(deg2rad(alpha)) * depth
+  h_tri <- tan(deg2rad(angle)) * depth
 
   # now it depends on the input...
     # for a given height calculate the width.
