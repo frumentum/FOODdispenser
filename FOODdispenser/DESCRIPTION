@@ -1,11 +1,12 @@
 Package: FOODdispenser
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Food dispensers' measurements
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Frumentum
+Maintainer: The package maintainer <frumentum@posteo.de>
+Description: The package shall contain everything what you need to build your own food dispensers for food co-ops, specific to your room measurements. 
+    At first step you find a function 'calculate' that you need to get the measurements of the dispensers themselves. 
+License: GPL
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
